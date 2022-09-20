@@ -16,18 +16,23 @@ function draw() {
     shapeY = shapeY + speedY;
     if (mouseIsPressed === true) {
         fill(0,0,0);
-      } else {
+        console.log("Mouse is pressed");
+    } else {
         fill(random(255),random(255),random(255));
-      }
+        console.log("Mouse is not pressed");
+    }
+
     if (shapeValue == 0) {
         circle(shapeX, shapeY, 50);
     } else {
         square(shapeX, shapeY, 50);
     }
+
     if (shapeY > windowHeight - 50 || shapeY < 25) {
         speedY = -speedY;
         shapeValue = 1 - shapeValue;
     }
+    
     if (shapeX > windowWidth - 50 || shapeX < 25) {
         speedX = -speedX;
         shapeValue = 1 - shapeValue;
