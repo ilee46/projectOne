@@ -7,17 +7,18 @@ shapeY = 50;
 speedY = 5;
 speedX = 5;
 shapeValue = 0;
+mouseVal = 0;
 
 console.log("This is my first console log!!");
 
-function draw() {
+function draw() {    
+    shapeX = shapeX + speedX;
+    shapeY = shapeY + speedY;
     if (mouseIsPressed === true) {
         fill(0,0,0);
       } else {
-        fill(random(255), random(255), random(255));
+        fill(random(255),random(255),random(255));
       }
-    shapeX = shapeX + speedX;
-    shapeY = shapeY + speedY;
     if (shapeValue == 0) {
         circle(shapeX, shapeY, 50);
     } else {
