@@ -8,6 +8,7 @@ speedY = 5;
 speedX = 5;
 shapeValue = 0;
 let mouseVal = 0;
+let clickTimes = 0;
 let color = [255, 0, 0];
 
 console.log("This is my first console log!!");
@@ -16,23 +17,53 @@ function draw() {
     shapeX = shapeX + speedX;
     shapeY = shapeY + speedY;
     if (mouseIsPressed === true) {
-        for (let lowerColor = 0; lowerColor < 3; lowerColor++) {
-            let upperColor = 0;
-            if (lowerColor < 2) {
-                upperColor = lowerColor + 1;
-            } else {
-                upperColor = 0;
-            }
-            for (let i = 0; i < 255; i++) {
-                color[lowerColor]--;
-                color[upperColor]++;
-            }
-            console.log(`Lower val is: ${lowerColor}`);
-            console.log(`Higher val is: ${upperColor}`);
-            console.log(`Red val is: ${color[0]}`);
-            console.log(`Green val is: ${color[1]}`);
-            console.log(`Blue val is: ${color[2]}`);
+        clickTimes++;
+        let settingNum = clickTimes % 8;
+        if (settingNum == 0) {
+            color[0] = 255;
+            color[1] = 0;
+            color[2] = 0;
         }
+        if (settingNum == 1) {
+            color[0] = 255;
+            color[1] = 255;
+            color[2] = 0;
+        } 
+        if (settingNum == 2) {
+            color[0] = 0;
+            color[1] = 255;
+            color[2] = 0;
+        }
+        if (settingNum == 3) {
+            color[0] = 0;
+            color[1] = 255;
+            color[2] = 255;
+        }
+        if (settingNum == 4) {
+            color[0] = 0;
+            color[1] = 0;
+            color[2] = 255;
+        } 
+        if (settingNum == 5) {
+            color[0] = 255;
+            color[1] = 0;
+            color[2] = 255;
+        } 
+        if (settingNum == 6) {
+            color[0] = 255;
+            color[1] = 255;
+            color[2] = 255;
+        }
+        if (settingNum == 7) {
+            color[0] = 0;
+            color[1] = 0;
+            color[2] = 0;
+        }
+        console.log(`Click value: ${clickTimes}`);
+        console.log(`Setting value: ${settingNum}`);
+        console.log(`Red val is: ${color[0]}`);
+        console.log(`Green val is: ${color[1]}`);
+        console.log(`Blue val is: ${color[2]}`);
         fill(color[0], color[1], color[2]);
     } else {
         fill(random(255),random(255),random(255));
